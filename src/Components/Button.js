@@ -1,15 +1,25 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 
-const Button = () => {
-
-    const onClick =() => {
-        console.log("i was clicked")
-    }
+const Button = ({ color, text, onClick }) => {
   return (
-    <div>
-        <button style={{backgroundColor:'steelblue'}} onClick= {onClick} className='btn'>Add</button>   
-    </div>
+    <button
+      onClick={onClick}
+      style={{ backgroundColor: color }}
+      className='btn'
+    >
+      {text}
+    </button>
   )
+}
+
+Button.defaultProps = {
+  color: 'steelblue',
+}
+
+Button.propTypes = {
+  text: PropTypes.string,
+  color: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export default Button

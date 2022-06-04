@@ -1,12 +1,12 @@
-import React from 'react'
+import Task from './Task'
 
-const tasks=[
-    
-]
-
-const Tasks = () => {
+const Tasks = ({ tasks, onDelete, onToggle }) => {
   return (
-    <div>Tasks</div>
+    <>
+      {tasks.map((task, index) => (
+        <Task key={index} task={task} onDelete={onDelete} onToggle={onToggle} />
+      ))}
+    </>
   )
 }
 
